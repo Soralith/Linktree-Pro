@@ -29,5 +29,4 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
-    Route::delete('products/{product}/images/{image}', [ProductController::class, 'deleteImage'])->name('products.images.delete');
 });
