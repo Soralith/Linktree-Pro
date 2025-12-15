@@ -9,8 +9,17 @@ class PortfolioController extends Controller
 {
     public function index()
     {
-        $categories = ProductCategory::with(['products' => function($q) {
-            $q->where('status', 'active')->orderBy('order')->orderBy('created_at', 'desc');
+        $search = request('search');
+        
+        $categories = ProductCategory::with(['products' => function($q) use ($search) {
+            $q->where('status', 'active');
+            if ($search) {
+                $q->where(function($query) use ($search) {
+                    $query->where('title', 'like', "%{$search}%")
+                          ->orWhere('description', 'like', "%{$search}%");
+                });
+            }
+            $q->orderBy('order')->orderBy('created_at', 'desc');
         }])->orderBy('order')->get();
 
         return view('portfolio.index', compact('categories'));

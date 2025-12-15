@@ -42,6 +42,24 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Author</label>
+                            <input type="text" name="author" class="form-control @error('author') is-invalid @enderror" value="{{ old('author') }}" placeholder="Nama pembuat">
+                            @error('author')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tools/Library</label>
+                            <input type="text" name="tools" class="form-control @error('tools') is-invalid @enderror" value="{{ old('tools') }}" placeholder="React, Laravel, Bootstrap, dll (pisahkan dengan koma)">
+                            @error('tools')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Bahasa Pemrograman</label>
+                            <input type="text" name="language" class="form-control @error('language') is-invalid @enderror" value="{{ old('language') }}" placeholder="JavaScript, PHP, Python, dll (pisahkan dengan koma)">
+                            @error('language')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Thumbnail</label>
                             <input type="file" name="thumbnail" class="form-control @error('thumbnail') is-invalid @enderror" accept="image/*" required>
                             @error('thumbnail')<div class="invalid-feedback">{{ $message }}</div>@enderror

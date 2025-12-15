@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Portal Berita') }}</title>
+    <!-- <title>{{ config('app.name', 'Portal Berita') }}</title> -->
+    <title>TEFA Etalase | Produk TEFA PPLG-RPL SMKN 11 Bandung</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
@@ -560,27 +561,38 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Portal Berita') }}
+                <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
+                    <img src="{{ asset('logo.png') }}" alt="Logo" style="height: 62px;">
+                    <!-- <span>{{ config('app.name', 'Laravel') }}</span> -->
+                    <span> TEFA ETALASE ELEVEN</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+<!-- 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form action="{{ route('home') }}" method="GET" class="d-flex mx-auto" style="max-width: 400px; width: 100%;">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" name="search" class="form-control border-start-0 ps-0" placeholder="Cari produk..." value="{{ request('search') }}" style="border-radius: 0 8px 8px 0;">
+                        </div>
+                    </form> -->
+
                     <ul class="navbar-nav ms-auto">
                         @guest
-                            @if (Route::has('login'))
+                            <!-- @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">Masuk</a>
                                 </li>
-                            @endif
+                            @endif -->
 
-                            @if (Route::has('register'))
+                            <!-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link btn btn-sm px-3" style="background: var(--accent-color); color: white; border-radius: 10px;" href="{{ route('register') }}">Daftar</a>
                                 </li>
-                            @endif
+                            @endif -->
                         @else
                             @if(Auth::user()->role === 'admin')
                                 <li class="nav-item">
@@ -613,7 +625,8 @@
 
         <footer class="bg-dark text-white py-4 mt-5">
             <div class="container text-center">
-                <p class="mb-0">&copy; {{ date('Y') }} {{ config('app.name') }}. Semua Hak Dilindungi.</p>
+                <!-- <p class="mb-0">&copy; {{ date('Y') }} {{ config('app.name') }}. Semua Hak Dilindungi.</p> -->
+                <p class="mb-0">- Produk TEFA PPLG | Dibuat oleh Ariq Rafif Komara & Tim Pengembang TEFA PPLG 2025-2026 -</p>
             </div>
         </footer>
     </div>
